@@ -3,18 +3,36 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 describe('Sprint 7 Challenge Learner Tests', () => {
+
   /*
   👉 TASK 1 - Unit Testing of sum function at the bottom of this module
 
   Test the following. You can create separate tests or a single test with multiple assertions.
-
+ 
     [1] sum() // throws an error 'pass valid numbers'
     [2] sum(2, 'seven') // throws an error 'pass valid numbers'
     [3] sum(1, 3) // returns 4
     [4] sum('1', 2) // returns 3
     [5] sum('10', '3') // returns 13
   */
+    test('throws an error when no arguments are passed', () => {
+      expect(() => sum()).toThrow('pass valid numbers');
+  });
 
+  test('throws an error when non-numeric arguments are passed', () => {
+    expect(() => sum(2, 'seven')).toThrow('pass valid numbers');
+  });
+
+  test('returns the correct sum when valid numeric arguments are passed', () => {
+    expect(sum(1, 3)).toBe(4);
+    expect(sum('1', 2)).toBe(3);
+    expect(sum('10', '3')).toBe(13);
+  });
+
+
+
+
+    
   /*
   👉 TASK 2 - Integration Testing of HelloWorld component at the bottom of this module
 
