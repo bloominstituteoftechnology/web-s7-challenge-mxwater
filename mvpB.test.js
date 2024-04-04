@@ -29,6 +29,8 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     expect(sum('10', '3')).toBe(13);
   });
 
+});
+
 
 
 
@@ -47,10 +49,56 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] renders a text that reads "JavaScript is pretty awesome"
     [6] renders a text that includes "javaScript is pretty" (use exact = false)
   */
-  test('you can comment out this test', () => {
-    expect(true).toBe(false)
-  })
-})
+
+
+    describe('Integration Testing of HelloWorld component', () => {
+      it('renders a link that reads "Home"', () => {
+        render(<HelloWorld />);
+        const homeLink = screen.queryByText('Home');
+        expect(homeLink).toBeInTheDocument();
+      });
+
+      it('renders a link that reads "About"', () => {
+        render(<HelloWorld />);
+        const aboutLink = screen.queryByText('About');
+        expect(aboutLink).toBeInTheDocument();
+      })
+      it('renders a link that reads "Blog"', () => {
+        render(<HelloWorld />);
+        const blogLink = screen.queryByText('Blog');
+        expect(blogLink).toBeInTheDocument();
+      })
+
+      it('renders a link that reads "The Truth"', () => {
+        render(<HelloWorld />);
+        const theTruthLink = screen.queryByText('The Truth');
+        expect(theTruthLink).toBeInTheDocument();
+      })
+
+      it('renders a link that reads "JavaScript is pretty awesome', () => {
+        render(<HelloWorld />);
+        const javaScriptLink = screen.queryByText('JavaScript is pretty awesome');
+        expect(javaScriptLink).toBeInTheDocument();
+      })
+
+      it('renders a text that includes "javaScript is pretty" (case insensitive)', () => {
+        render(<HelloWorld />);
+        const includesText = screen.queryByText(/javascript is pretty/i); 
+        expect(includesText).toBeInTheDocument();
+      });
+
+    });
+
+
+
+
+
+
+
+  // test('you can comment out this test', () => {
+  //   expect(true).toBe(false)
+  // })
+
 
 function sum(a, b) {
   a = Number(a)
